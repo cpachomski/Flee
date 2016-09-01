@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import mapStyles from '../mapStyles';
 import './style.scss';
+
 
 export default class FullscreenMap extends Component {
 
@@ -9,6 +11,7 @@ export default class FullscreenMap extends Component {
 
 	componentDidMount() {
 		this.map = this.createMap()
+		this.setMapStyles()
 		google.maps.event.addListener(this.map, 'zoom_changed', () => { this.handleZoomChange() })
 	}
 
@@ -21,10 +24,19 @@ export default class FullscreenMap extends Component {
 			zoom: this.state.zoom,
 			center: this.mapCenter(),
 			disableDoubleClickZoom: true,
-			scrollwheel: false
+			scrollwheel: false,
+			mapTypeControlOptions: {
+				mapTypeIds: ['styled_map']
+			}
 		}
 
 		return new google.maps.Map(this.refs.fullscreenMap, mapOptions)
+	}
+
+	setMapStyles() {
+		const mapStyle = new google.maps.StyledMapType(mapStyles);
+		this.map.mapTypes.set('styled_map', mapStyle)
+		this.map.setMapTypeId('styled_map');
 	}
 
 	mapCenter() {

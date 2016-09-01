@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router';
 
 import FullscreenMap from '../../partials/FullscreenMap'
 import Logo from '../../partials/Logo'
@@ -13,6 +14,7 @@ export default class Landing extends Component {
 			<div>
 				<Logo />
 				<FullscreenMap data={ data } initialCenter={ initialCenter }/>
+
 			</div>
 		)
 	}
