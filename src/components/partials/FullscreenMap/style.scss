@@ -1,0 +1,18 @@
+.fullscreen-map-container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+
+	> .map {
+		height: 100%;
+	}
+}
+
+//hide google maps elements
+.gm-style-cc,
+.gmnoprint { 
+	display: none; 
+}
+

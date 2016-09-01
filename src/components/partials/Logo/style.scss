@@ -1,0 +1,19 @@
+@import '../../../var.scss';
+
+.logo-container {
+	position: absolute;
+	top: 0px;
+	padding-top: 50px;
+	left: 50%;
+	z-index: 100;
+	transform: translateX(-50%);
+
+	> h1 {
+		display: inline;
+		font-size: 90px;
+		text-transform: uppercase;
+		color: black;
+		letter-spacing: 20px;
+		font-family: $bad-script;
+	}
+}
