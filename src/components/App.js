@@ -16,12 +16,6 @@ export default class App extends Component {
 		this.setState({ AppStore })
 	}
 
-	getStore() {
-		AppDispatcher.dispatch({
-			action: 'get-initial-store'
-		})
-	}
-
 	render() {
 		const { data } = AppStore;
 

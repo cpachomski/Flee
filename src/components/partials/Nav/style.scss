@@ -7,6 +7,11 @@
 	height: 100%;
 	box-sizing: border-box;
 	padding-top: 200px;
+	transition: all 0.3s ease-out;
+
+	&.hidden {
+		transform: translateX(300px);
+	}
 
 	> a {
 		display: block;

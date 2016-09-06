@@ -55,8 +55,11 @@ export default class FullscreenMap extends Component {
 	}
 
 	render() {
+		const { data } = this.props
+		const mapClass = data.mapExpanded ? 'fullscreen-map-container expanded' : 'fullscreen-map-container'
+
 		return (
-			<div className='fullscreen-map-container'>
+			<div className={ mapClass }>
 				<div className='map' ref='fullscreenMap'></div>
 			</div>
 		)

@@ -3,4 +3,10 @@
 	text-align: center;
 	background: #333;
 	color: white;
+	z-index: 200;
+	position: absolute;
+	left: 0px;
+	top: 50%;
+	border: 0px;
+	transform: translateY(-50%);
 }

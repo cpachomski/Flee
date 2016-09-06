@@ -15,6 +15,7 @@ export default function getInitialStore(cb) {
 		AppStore.data.trips = trips
 		AppStore.data.sidebar = sidebar
 
+		AppStore.data.mapExpanded = false;
 
 		AppStore.data.ready = true
 		AppStore.emitChange()

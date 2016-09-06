@@ -1,5 +1,5 @@
 import { Dispatcher } from 'flux'
-import { getInitialStore } from '../actions'
+import { getInitialStore, toggleMap } from '../actions'
 
 const AppDispatcher = new Dispatcher();
 
@@ -9,6 +9,10 @@ AppDispatcher.register((payload) => {
 	switch(action) {
 		case 'get-initial-store':
 			getInitialStore()
+			break
+
+		case 'toggle-map';
+			toggleMap();
 			break
 
 		default

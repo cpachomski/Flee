@@ -81,7 +81,7 @@
 
 			var _routes2 = _interopRequireDefault(_routes);
 
-			__webpack_require__(265);
+			__webpack_require__(257);
 
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
@@ -27171,19 +27171,19 @@
 
 			var _App2 = _interopRequireDefault(_App);
 
-			var _Landing = __webpack_require__(252);
+			var _Landing = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/pages/Landing\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 			var _Landing2 = _interopRequireDefault(_Landing);
 
-			var _Trips = __webpack_require__(262);
+			var _Trips = __webpack_require__(254);
 
 			var _Trips2 = _interopRequireDefault(_Trips);
 
-			var _Articles = __webpack_require__(263);
+			var _Articles = __webpack_require__(255);
 
 			var _Articles2 = _interopRequireDefault(_Articles);
 
-			var _FourOhFour = __webpack_require__(264);
+			var _FourOhFour = __webpack_require__(256);
 
 			var _FourOhFour2 = _interopRequireDefault(_FourOhFour);
 
@@ -44540,17 +44540,22 @@
 			Object.defineProperty(exports, "__esModule", {
 				value: true
 			});
-			exports.getInitialStore = undefined;
+			exports.toggleMap = exports.getInitialStore = undefined;
 
 			var _getInitialStore = __webpack_require__(243);
 
 			var _getInitialStore2 = _interopRequireDefault(_getInitialStore);
+
+			var _toggleMap = __webpack_require__(252);
+
+			var _toggleMap2 = _interopRequireDefault(_toggleMap);
 
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
 			}
 
 			exports.getInitialStore = _getInitialStore2.default;
+			exports.toggleMap = _toggleMap2.default;
 
 			/* REACT HOT LOADER */
 		}).call(undefined);
@@ -44635,10 +44640,10 @@
 					_AppStore2.default.data.trips = trips;
 					_AppStore2.default.data.sidebar = sidebar;
 
-					setTimeout(function () {
-						_AppStore2.default.data.ready = true;
-						_AppStore2.default.emitChange();
-					}, 0);
+					_AppStore2.default.ui.mapExpanded = false;
+
+					_AppStore2.default.data.ready = true;
+					_AppStore2.default.emitChange();
 
 					//server callback
 					if (cb) {
@@ -58697,8 +58702,6 @@
 
 	"use strict";
 
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 	/* REACT HOT LOADER */if (false) {
 		(function () {
 			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
@@ -58716,77 +58719,21 @@
 			Object.defineProperty(exports, "__esModule", {
 				value: true
 			});
+			exports.default = toggleMap;
 
-			var _createClass = function () {
-				function defineProperties(target, props) {
-					for (var i = 0; i < props.length; i++) {
-						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-					}
-				}return function (Constructor, protoProps, staticProps) {
-					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-				};
-			}();
+			var _AppStore = __webpack_require__(238);
 
-			var _react = __webpack_require__(2);
-
-			var _react2 = _interopRequireDefault(_react);
-
-			var _reactRouter = __webpack_require__(173);
-
-			var _FullscreenMap = __webpack_require__(253);
-
-			var _FullscreenMap2 = _interopRequireDefault(_FullscreenMap);
-
-			var _Logo = __webpack_require__(259);
-
-			var _Logo2 = _interopRequireDefault(_Logo);
+			var _AppStore2 = _interopRequireDefault(_AppStore);
 
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
 			}
 
-			function _classCallCheck(instance, Constructor) {
-				if (!(instance instanceof Constructor)) {
-					throw new TypeError("Cannot call a class as a function");
-				}
+			function toggleMap() {
+
+				_AppStore2.default.ui.mapExpanded = !_AppStore2.default.ui.mapExpanded;
+				_AppStore2.default.emitChange();
 			}
-
-			function _possibleConstructorReturn(self, call) {
-				if (!self) {
-					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-			}
-
-			function _inherits(subClass, superClass) {
-				if (typeof superClass !== "function" && superClass !== null) {
-					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-			}
-
-			var Landing = function (_Component) {
-				_inherits(Landing, _Component);
-
-				function Landing() {
-					_classCallCheck(this, Landing);
-
-					return _possibleConstructorReturn(this, (Landing.__proto__ || Object.getPrototypeOf(Landing)).apply(this, arguments));
-				}
-
-				_createClass(Landing, [{
-					key: 'render',
-					value: function render() {
-						var data = this.props.data;
-
-						var initialCenter = { lng: -90.1056957, lat: 29.9717272 };
-
-						return _react2.default.createElement('div', null, _react2.default.createElement(_Logo2.default, null), _react2.default.createElement(_FullscreenMap2.default, { data: data, initialCenter: initialCenter }));
-					}
-				}]);
-
-				return Landing;
-			}(_react.Component);
-
-			exports.default = Landing;
 
 			/* REACT HOT LOADER */
 		}).call(undefined);
@@ -58799,7 +58746,7 @@
 					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
 						module.hot.accept(function (err) {
 							if (err) {
-								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
+								console.error("Cannot not apply hot update to " + "toggleMap.js" + ": " + err.message);
 							}
 						});
 					}
@@ -58810,186 +58757,10 @@
 		}
 	}
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "toggleMap.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	/* REACT HOT LOADER */if (false) {
-		(function () {
-			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
-			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
-			    ReactMount = require("react/lib/ReactMount"),
-			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
-				return RootInstanceProvider.getRootInstances(ReactMount);
-			}, React);
-		})();
-	}try {
-		(function () {
-
-			'use strict';
-
-			Object.defineProperty(exports, "__esModule", {
-				value: true
-			});
-
-			var _createClass = function () {
-				function defineProperties(target, props) {
-					for (var i = 0; i < props.length; i++) {
-						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-					}
-				}return function (Constructor, protoProps, staticProps) {
-					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-				};
-			}();
-
-			var _react = __webpack_require__(2);
-
-			var _react2 = _interopRequireDefault(_react);
-
-			var _mapStyles = __webpack_require__(254);
-
-			var _mapStyles2 = _interopRequireDefault(_mapStyles);
-
-			__webpack_require__(255);
-
-			function _interopRequireDefault(obj) {
-				return obj && obj.__esModule ? obj : { default: obj };
-			}
-
-			function _classCallCheck(instance, Constructor) {
-				if (!(instance instanceof Constructor)) {
-					throw new TypeError("Cannot call a class as a function");
-				}
-			}
-
-			function _possibleConstructorReturn(self, call) {
-				if (!self) {
-					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-			}
-
-			function _inherits(subClass, superClass) {
-				if (typeof superClass !== "function" && superClass !== null) {
-					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-			}
-
-			var FullscreenMap = function (_Component) {
-				_inherits(FullscreenMap, _Component);
-
-				function FullscreenMap() {
-					var _ref;
-
-					var _temp, _this, _ret;
-
-					_classCallCheck(this, FullscreenMap);
-
-					for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-						args[_key] = arguments[_key];
-					}
-
-					return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FullscreenMap.__proto__ || Object.getPrototypeOf(FullscreenMap)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-						zoom: 3
-					}, _temp), _possibleConstructorReturn(_this, _ret);
-				}
-
-				_createClass(FullscreenMap, [{
-					key: 'componentDidMount',
-					value: function componentDidMount() {
-						var _this2 = this;
-
-						this.map = this.createMap();
-						this.setMapStyles();
-						google.maps.event.addListener(this.map, 'zoom_changed', function () {
-							_this2.handleZoomChange();
-						});
-					}
-				}, {
-					key: 'componentDidUnMount',
-					value: function componentDidUnMount() {
-						google.maps.event.clearListener(this.map, 'zoom_changed');
-					}
-				}, {
-					key: 'createMap',
-					value: function createMap() {
-						var mapOptions = {
-							zoom: this.state.zoom,
-							center: this.mapCenter(),
-							disableDoubleClickZoom: true,
-							scrollwheel: false,
-							mapTypeControlOptions: {
-								mapTypeIds: ['styled_map']
-							}
-						};
-
-						return new google.maps.Map(this.refs.fullscreenMap, mapOptions);
-					}
-				}, {
-					key: 'setMapStyles',
-					value: function setMapStyles() {
-						var mapStyle = new google.maps.StyledMapType(_mapStyles2.default);
-						this.map.mapTypes.set('styled_map', mapStyle);
-						this.map.setMapTypeId('styled_map');
-					}
-				}, {
-					key: 'mapCenter',
-					value: function mapCenter() {
-						var initialCenter = this.props.initialCenter;
-
-						return new google.maps.LatLng(initialCenter.lat, initialCenter.lng);
-					}
-				}, {
-					key: 'handleZoomChange',
-					value: function handleZoomChange() {
-						this.setState({
-							zoom: this.map.getZoom()
-						});
-					}
-				}, {
-					key: 'render',
-					value: function render() {
-						return _react2.default.createElement('div', { className: 'fullscreen-map-container' }, _react2.default.createElement('div', { className: 'map', ref: 'fullscreenMap' }));
-					}
-				}]);
-
-				return FullscreenMap;
-			}(_react.Component);
-
-			exports.default = FullscreenMap;
-
-			/* REACT HOT LOADER */
-		}).call(undefined);
-	} finally {
-		if (false) {
-			(function () {
-				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
-					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
-						foundReactClasses = true;
-					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
-						module.hot.accept(function (err) {
-							if (err) {
-								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
-							}
-						});
-					}
-				}module.hot.dispose(function (data) {
-					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
-				});
-			})();
-		}
-	}
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
+/* 253 */,
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -58997,163 +58768,343 @@
 
 	"use strict";
 
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 	/* REACT HOT LOADER */if (false) {
-	    (function () {
-	        var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
-	            RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
-	            ReactMount = require("react/lib/ReactMount"),
-	            React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
-	            return RootInstanceProvider.getRootInstances(ReactMount);
-	        }, React);
-	    })();
+		(function () {
+			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
+			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
+			    ReactMount = require("react/lib/ReactMount"),
+			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
+				return RootInstanceProvider.getRootInstances(ReactMount);
+			}, React);
+		})();
 	}try {
-	    (function () {
+		(function () {
 
-	        "use strict";
+			'use strict';
 
-	        Object.defineProperty(exports, "__esModule", {
-	            value: true
-	        });
-	        exports.default = [{
-	            "featureType": "administrative",
-	            "elementType": "geometry.fill",
-	            "stylers": [{ "visibility": "off" }]
-	        }, {
-	            "featureType": "administrative",
-	            "elementType": "labels",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "administrative.country",
-	            "elementType": "geometry.stroke",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "administrative.province",
-	            "elementType": "geometry.stroke",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "landscape",
-	            "elementType": "geometry",
-	            "stylers": [{
-	                "visibility": "on"
-	            }, {
-	                "color": "#e3e3e3"
-	            }]
-	        }, {
-	            "featureType": "landscape.natural",
-	            "elementType": "labels",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "poi",
-	            "elementType": "all",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "road",
-	            "elementType": "all",
-	            "stylers": [{
-	                "color": "#cccccc"
-	            }]
-	        }, {
-	            "featureType": "road",
-	            "elementType": "labels",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "transit",
-	            "elementType": "labels.icon",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "transit.line",
-	            "elementType": "geometry",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "transit.line",
-	            "elementType": "labels.text",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "transit.station.airport",
-	            "elementType": "geometry",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "transit.station.airport",
-	            "elementType": "labels",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }, {
-	            "featureType": "water",
-	            "elementType": "geometry",
-	            "stylers": [{
-	                "color": "#FFFFFF"
-	            }]
-	        }, {
-	            "featureType": "water",
-	            "elementType": "labels",
-	            "stylers": [{
-	                "visibility": "off"
-	            }]
-	        }];
+			Object.defineProperty(exports, "__esModule", {
+				value: true
+			});
 
-	        /* REACT HOT LOADER */
-	    }).call(undefined);
+			var _createClass = function () {
+				function defineProperties(target, props) {
+					for (var i = 0; i < props.length; i++) {
+						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+					}
+				}return function (Constructor, protoProps, staticProps) {
+					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+				};
+			}();
+
+			var _react = __webpack_require__(2);
+
+			var _react2 = _interopRequireDefault(_react);
+
+			function _interopRequireDefault(obj) {
+				return obj && obj.__esModule ? obj : { default: obj };
+			}
+
+			function _classCallCheck(instance, Constructor) {
+				if (!(instance instanceof Constructor)) {
+					throw new TypeError("Cannot call a class as a function");
+				}
+			}
+
+			function _possibleConstructorReturn(self, call) {
+				if (!self) {
+					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+			}
+
+			function _inherits(subClass, superClass) {
+				if (typeof superClass !== "function" && superClass !== null) {
+					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+			}
+
+			var Trips = function (_Component) {
+				_inherits(Trips, _Component);
+
+				function Trips() {
+					_classCallCheck(this, Trips);
+
+					return _possibleConstructorReturn(this, (Trips.__proto__ || Object.getPrototypeOf(Trips)).apply(this, arguments));
+				}
+
+				_createClass(Trips, [{
+					key: 'render',
+					value: function render() {
+						return _react2.default.createElement('div', { className: 'trips' }, _react2.default.createElement('h1', null, ' Trips '));
+					}
+				}]);
+
+				return Trips;
+			}(_react.Component);
+
+			exports.default = Trips;
+
+			/* REACT HOT LOADER */
+		}).call(undefined);
 	} finally {
-	    if (false) {
-	        (function () {
-	            var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
-	                var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
-	                    foundReactClasses = true;
-	                }var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
-	                    module.hot.accept(function (err) {
-	                        if (err) {
-	                            console.error("Cannot not apply hot update to " + "mapStyles.js" + ": " + err.message);
-	                        }
-	                    });
-	                }
-	            }module.hot.dispose(function (data) {
-	                data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
-	            });
-	        })();
-	    }
+		if (false) {
+			(function () {
+				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
+					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
+						foundReactClasses = true;
+					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
+						module.hot.accept(function (err) {
+							if (err) {
+								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
+							}
+						});
+					}
+				}module.hot.dispose(function (data) {
+					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
+				});
+			})();
+		}
 	}
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "mapStyles.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/* REACT HOT LOADER */if (false) {
+		(function () {
+			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
+			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
+			    ReactMount = require("react/lib/ReactMount"),
+			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
+				return RootInstanceProvider.getRootInstances(ReactMount);
+			}, React);
+		})();
+	}try {
+		(function () {
+
+			'use strict';
+
+			Object.defineProperty(exports, "__esModule", {
+				value: true
+			});
+
+			var _createClass = function () {
+				function defineProperties(target, props) {
+					for (var i = 0; i < props.length; i++) {
+						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+					}
+				}return function (Constructor, protoProps, staticProps) {
+					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+				};
+			}();
+
+			var _react = __webpack_require__(2);
+
+			var _react2 = _interopRequireDefault(_react);
+
+			function _interopRequireDefault(obj) {
+				return obj && obj.__esModule ? obj : { default: obj };
+			}
+
+			function _classCallCheck(instance, Constructor) {
+				if (!(instance instanceof Constructor)) {
+					throw new TypeError("Cannot call a class as a function");
+				}
+			}
+
+			function _possibleConstructorReturn(self, call) {
+				if (!self) {
+					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+			}
+
+			function _inherits(subClass, superClass) {
+				if (typeof superClass !== "function" && superClass !== null) {
+					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+			}
+
+			var Articles = function (_Component) {
+				_inherits(Articles, _Component);
+
+				function Articles() {
+					_classCallCheck(this, Articles);
+
+					return _possibleConstructorReturn(this, (Articles.__proto__ || Object.getPrototypeOf(Articles)).apply(this, arguments));
+				}
+
+				_createClass(Articles, [{
+					key: 'render',
+					value: function render() {
+						return _react2.default.createElement('div', { className: 'Articles' }, _react2.default.createElement('h1', null, ' Articles '));
+					}
+				}]);
+
+				return Articles;
+			}(_react.Component);
+
+			exports.default = Articles;
+
+			/* REACT HOT LOADER */
+		}).call(undefined);
+	} finally {
+		if (false) {
+			(function () {
+				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
+					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
+						foundReactClasses = true;
+					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
+						module.hot.accept(function (err) {
+							if (err) {
+								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
+							}
+						});
+					}
+				}module.hot.dispose(function (data) {
+					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
+				});
+			})();
+		}
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/* REACT HOT LOADER */if (false) {
+		(function () {
+			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
+			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
+			    ReactMount = require("react/lib/ReactMount"),
+			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
+				return RootInstanceProvider.getRootInstances(ReactMount);
+			}, React);
+		})();
+	}try {
+		(function () {
+
+			'use strict';
+
+			Object.defineProperty(exports, "__esModule", {
+				value: true
+			});
+
+			var _createClass = function () {
+				function defineProperties(target, props) {
+					for (var i = 0; i < props.length; i++) {
+						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+					}
+				}return function (Constructor, protoProps, staticProps) {
+					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+				};
+			}();
+
+			var _react = __webpack_require__(2);
+
+			var _react2 = _interopRequireDefault(_react);
+
+			function _interopRequireDefault(obj) {
+				return obj && obj.__esModule ? obj : { default: obj };
+			}
+
+			function _classCallCheck(instance, Constructor) {
+				if (!(instance instanceof Constructor)) {
+					throw new TypeError("Cannot call a class as a function");
+				}
+			}
+
+			function _possibleConstructorReturn(self, call) {
+				if (!self) {
+					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+			}
+
+			function _inherits(subClass, superClass) {
+				if (typeof superClass !== "function" && superClass !== null) {
+					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+			}
+
+			var FourOhFour = function (_Component) {
+				_inherits(FourOhFour, _Component);
+
+				function FourOhFour() {
+					_classCallCheck(this, FourOhFour);
+
+					return _possibleConstructorReturn(this, (FourOhFour.__proto__ || Object.getPrototypeOf(FourOhFour)).apply(this, arguments));
+				}
+
+				_createClass(FourOhFour, [{
+					key: 'render',
+					value: function render() {
+						return _react2.default.createElement('div', { className: '404' }, _react2.default.createElement('h1', null, ' 404 get outta here... '));
+					}
+				}]);
+
+				return FourOhFour;
+			}(_react.Component);
+
+			exports.default = FourOhFour;
+
+			/* REACT HOT LOADER */
+		}).call(undefined);
+	} finally {
+		if (false) {
+			(function () {
+				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
+					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
+						foundReactClasses = true;
+					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
+						module.hot.accept(function (err) {
+							if (err) {
+								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
+							}
+						});
+					}
+				}module.hot.dispose(function (data) {
+					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
+				});
+			})();
+		}
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(256);
+	var content = __webpack_require__(258);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(258)(content, {});
+	var update = __webpack_require__(260)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./style.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./style.scss");
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./style.scss", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./style.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -59163,21 +59114,21 @@
 	}
 
 /***/ },
-/* 256 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(257)();
+	exports = module.exports = __webpack_require__(259)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".fullscreen-map-container {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  height: 100%;\n  width: 100%; }\n  .fullscreen-map-container > .map {\n    height: 100%; }\n\n.gm-style-cc,\n.gmnoprint {\n  display: none; }\n", ""]);
+	exports.push([module.id, "/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */\n/**\n * 1. Change the default font family in all browsers (opinionated).\n * 2. Prevent adjustments of font size after orientation changes in IE and iOS.\n */\nhtml {\n  font-family: sans-serif;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */ }\n\n/**\n * Remove the margin in all browsers (opinionated).\n */\nbody {\n  margin: 0; }\n\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n * 2. Add the correct display in IE.\n */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  /* 1 */\n  display: block; }\n\n/**\n * Add the correct display in IE 9-.\n */\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block; }\n\n/**\n * Add the correct display in iOS 4-7.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\nprogress {\n  vertical-align: baseline; }\n\n/**\n * Add the correct display in IE 10-.\n * 1. Add the correct display in IE.\n */\ntemplate,\n[hidden] {\n  display: none; }\n\n/* Links\n   ========================================================================== */\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\na {\n  background-color: transparent;\n  /* 1 */\n  -webkit-text-decoration-skip: objects;\n  /* 2 */ }\n\n/**\n * Remove the outline on focused links when they are also active or hovered\n * in all browsers (opinionated).\n */\na:active,\na:hover {\n  outline-width: 0; }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * 1. Remove the bottom border in Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\nabbr[title] {\n  border-bottom: none;\n  /* 1 */\n  text-decoration: underline;\n  /* 2 */\n  text-decoration: underline dotted;\n  /* 2 */ }\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\nb,\nstrong {\n  font-weight: inherit; }\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\nb,\nstrong {\n  font-weight: bolder; }\n\n/**\n * Add the correct font style in Android 4.3-.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0; }\n\n/**\n * Add the correct background and color in IE 9-.\n */\nmark {\n  background-color: #ff0;\n  color: #000; }\n\n/**\n * Add the correct font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsub {\n  bottom: -0.25em; }\n\nsup {\n  top: -0.5em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * Remove the border on images inside links in IE 10-.\n */\nimg {\n  border-style: none; }\n\n/**\n * Hide the overflow in IE.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/**\n * Add the correct margin in IE 8.\n */\nfigure {\n  margin: 1em 40px; }\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\nhr {\n  box-sizing: content-box;\n  /* 1 */\n  height: 0;\n  /* 1 */\n  overflow: visible;\n  /* 2 */ }\n\n/* Forms\n   ========================================================================== */\n/**\n * 1. Change font properties to `inherit` in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\nbutton,\ninput,\nselect,\ntextarea {\n  font: inherit;\n  /* 1 */\n  margin: 0;\n  /* 2 */ }\n\n/**\n * Restore the font weight unset by the previous rule.\n */\noptgroup {\n  font-weight: bold; }\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\nbutton,\ninput {\n  /* 1 */\n  overflow: visible; }\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\nbutton,\nselect {\n  /* 1 */\n  text-transform: none; }\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\nbutton,\nhtml [type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */ }\n\n/**\n * Remove the inner border and padding in Firefox.\n */\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0; }\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText; }\n\n/**\n * Change the border, margin, and padding in all browsers (opinionated).\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em; }\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\nlegend {\n  box-sizing: border-box;\n  /* 1 */\n  color: inherit;\n  /* 2 */\n  display: table;\n  /* 1 */\n  max-width: 100%;\n  /* 1 */\n  padding: 0;\n  /* 3 */\n  white-space: normal;\n  /* 1 */ }\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\ntextarea {\n  overflow: auto; }\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */ }\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  outline-offset: -2px;\n  /* 2 */ }\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.\n */\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * Correct the text style of placeholders in Chrome, Edge, and Safari.\n */\n::-webkit-input-placeholder {\n  color: inherit;\n  opacity: 0.54; }\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n::-webkit-file-upload-button {\n  -webkit-appearance: button;\n  /* 1 */\n  font: inherit;\n  /* 2 */ }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 257 */
+/* 259 */
 /***/ function(module, exports) {
 
 	/*
@@ -59233,7 +59184,7 @@
 
 
 /***/ },
-/* 258 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -59482,524 +59433,6 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
-
-
-/***/ },
-/* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	/* REACT HOT LOADER */if (false) {
-		(function () {
-			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
-			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
-			    ReactMount = require("react/lib/ReactMount"),
-			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
-				return RootInstanceProvider.getRootInstances(ReactMount);
-			}, React);
-		})();
-	}try {
-		(function () {
-
-			'use strict';
-
-			Object.defineProperty(exports, "__esModule", {
-				value: true
-			});
-
-			var _createClass = function () {
-				function defineProperties(target, props) {
-					for (var i = 0; i < props.length; i++) {
-						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-					}
-				}return function (Constructor, protoProps, staticProps) {
-					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-				};
-			}();
-
-			var _react = __webpack_require__(2);
-
-			var _react2 = _interopRequireDefault(_react);
-
-			__webpack_require__(260);
-
-			function _interopRequireDefault(obj) {
-				return obj && obj.__esModule ? obj : { default: obj };
-			}
-
-			function _classCallCheck(instance, Constructor) {
-				if (!(instance instanceof Constructor)) {
-					throw new TypeError("Cannot call a class as a function");
-				}
-			}
-
-			function _possibleConstructorReturn(self, call) {
-				if (!self) {
-					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-			}
-
-			function _inherits(subClass, superClass) {
-				if (typeof superClass !== "function" && superClass !== null) {
-					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-			}
-
-			var Logo = function (_Component) {
-				_inherits(Logo, _Component);
-
-				function Logo() {
-					_classCallCheck(this, Logo);
-
-					return _possibleConstructorReturn(this, (Logo.__proto__ || Object.getPrototypeOf(Logo)).apply(this, arguments));
-				}
-
-				_createClass(Logo, [{
-					key: 'render',
-					value: function render() {
-						return _react2.default.createElement('div', { className: 'logo-container' }, _react2.default.createElement('h1', null, 'Flee'));
-					}
-				}]);
-
-				return Logo;
-			}(_react.Component);
-
-			exports.default = Logo;
-
-			/* REACT HOT LOADER */
-		}).call(undefined);
-	} finally {
-		if (false) {
-			(function () {
-				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
-					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
-						foundReactClasses = true;
-					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
-						module.hot.accept(function (err) {
-							if (err) {
-								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
-							}
-						});
-					}
-				}module.hot.dispose(function (data) {
-					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
-				});
-			})();
-		}
-	}
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 260 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(261);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(258)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./style.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./style.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(257)();
-	// imports
-
-
-	// module
-	exports.push([module.id, ".logo-container {\n  position: absolute;\n  top: 0px;\n  padding-top: 50px;\n  left: 50%;\n  z-index: 100;\n  transform: translateX(-50%); }\n  .logo-container > h1 {\n    display: inline;\n    font-size: 90px;\n    text-transform: uppercase;\n    color: #333;\n    letter-spacing: 20px;\n    font-family: \"Bad Script\", cursive; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	/* REACT HOT LOADER */if (false) {
-		(function () {
-			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
-			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
-			    ReactMount = require("react/lib/ReactMount"),
-			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
-				return RootInstanceProvider.getRootInstances(ReactMount);
-			}, React);
-		})();
-	}try {
-		(function () {
-
-			'use strict';
-
-			Object.defineProperty(exports, "__esModule", {
-				value: true
-			});
-
-			var _createClass = function () {
-				function defineProperties(target, props) {
-					for (var i = 0; i < props.length; i++) {
-						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-					}
-				}return function (Constructor, protoProps, staticProps) {
-					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-				};
-			}();
-
-			var _react = __webpack_require__(2);
-
-			var _react2 = _interopRequireDefault(_react);
-
-			function _interopRequireDefault(obj) {
-				return obj && obj.__esModule ? obj : { default: obj };
-			}
-
-			function _classCallCheck(instance, Constructor) {
-				if (!(instance instanceof Constructor)) {
-					throw new TypeError("Cannot call a class as a function");
-				}
-			}
-
-			function _possibleConstructorReturn(self, call) {
-				if (!self) {
-					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-			}
-
-			function _inherits(subClass, superClass) {
-				if (typeof superClass !== "function" && superClass !== null) {
-					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-			}
-
-			var Trips = function (_Component) {
-				_inherits(Trips, _Component);
-
-				function Trips() {
-					_classCallCheck(this, Trips);
-
-					return _possibleConstructorReturn(this, (Trips.__proto__ || Object.getPrototypeOf(Trips)).apply(this, arguments));
-				}
-
-				_createClass(Trips, [{
-					key: 'render',
-					value: function render() {
-						return _react2.default.createElement('div', { className: 'trips' }, _react2.default.createElement('h1', null, ' Trips '));
-					}
-				}]);
-
-				return Trips;
-			}(_react.Component);
-
-			exports.default = Trips;
-
-			/* REACT HOT LOADER */
-		}).call(undefined);
-	} finally {
-		if (false) {
-			(function () {
-				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
-					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
-						foundReactClasses = true;
-					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
-						module.hot.accept(function (err) {
-							if (err) {
-								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
-							}
-						});
-					}
-				}module.hot.dispose(function (data) {
-					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
-				});
-			})();
-		}
-	}
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	/* REACT HOT LOADER */if (false) {
-		(function () {
-			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
-			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
-			    ReactMount = require("react/lib/ReactMount"),
-			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
-				return RootInstanceProvider.getRootInstances(ReactMount);
-			}, React);
-		})();
-	}try {
-		(function () {
-
-			'use strict';
-
-			Object.defineProperty(exports, "__esModule", {
-				value: true
-			});
-
-			var _createClass = function () {
-				function defineProperties(target, props) {
-					for (var i = 0; i < props.length; i++) {
-						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-					}
-				}return function (Constructor, protoProps, staticProps) {
-					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-				};
-			}();
-
-			var _react = __webpack_require__(2);
-
-			var _react2 = _interopRequireDefault(_react);
-
-			function _interopRequireDefault(obj) {
-				return obj && obj.__esModule ? obj : { default: obj };
-			}
-
-			function _classCallCheck(instance, Constructor) {
-				if (!(instance instanceof Constructor)) {
-					throw new TypeError("Cannot call a class as a function");
-				}
-			}
-
-			function _possibleConstructorReturn(self, call) {
-				if (!self) {
-					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-			}
-
-			function _inherits(subClass, superClass) {
-				if (typeof superClass !== "function" && superClass !== null) {
-					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-			}
-
-			var Articles = function (_Component) {
-				_inherits(Articles, _Component);
-
-				function Articles() {
-					_classCallCheck(this, Articles);
-
-					return _possibleConstructorReturn(this, (Articles.__proto__ || Object.getPrototypeOf(Articles)).apply(this, arguments));
-				}
-
-				_createClass(Articles, [{
-					key: 'render',
-					value: function render() {
-						return _react2.default.createElement('div', { className: 'Articles' }, _react2.default.createElement('h1', null, ' Articles '));
-					}
-				}]);
-
-				return Articles;
-			}(_react.Component);
-
-			exports.default = Articles;
-
-			/* REACT HOT LOADER */
-		}).call(undefined);
-	} finally {
-		if (false) {
-			(function () {
-				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
-					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
-						foundReactClasses = true;
-					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
-						module.hot.accept(function (err) {
-							if (err) {
-								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
-							}
-						});
-					}
-				}module.hot.dispose(function (data) {
-					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
-				});
-			})();
-		}
-	}
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	"use strict";
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	/* REACT HOT LOADER */if (false) {
-		(function () {
-			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
-			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
-			    ReactMount = require("react/lib/ReactMount"),
-			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
-				return RootInstanceProvider.getRootInstances(ReactMount);
-			}, React);
-		})();
-	}try {
-		(function () {
-
-			'use strict';
-
-			Object.defineProperty(exports, "__esModule", {
-				value: true
-			});
-
-			var _createClass = function () {
-				function defineProperties(target, props) {
-					for (var i = 0; i < props.length; i++) {
-						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-					}
-				}return function (Constructor, protoProps, staticProps) {
-					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-				};
-			}();
-
-			var _react = __webpack_require__(2);
-
-			var _react2 = _interopRequireDefault(_react);
-
-			function _interopRequireDefault(obj) {
-				return obj && obj.__esModule ? obj : { default: obj };
-			}
-
-			function _classCallCheck(instance, Constructor) {
-				if (!(instance instanceof Constructor)) {
-					throw new TypeError("Cannot call a class as a function");
-				}
-			}
-
-			function _possibleConstructorReturn(self, call) {
-				if (!self) {
-					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-			}
-
-			function _inherits(subClass, superClass) {
-				if (typeof superClass !== "function" && superClass !== null) {
-					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
-				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-			}
-
-			var FourOhFour = function (_Component) {
-				_inherits(FourOhFour, _Component);
-
-				function FourOhFour() {
-					_classCallCheck(this, FourOhFour);
-
-					return _possibleConstructorReturn(this, (FourOhFour.__proto__ || Object.getPrototypeOf(FourOhFour)).apply(this, arguments));
-				}
-
-				_createClass(FourOhFour, [{
-					key: 'render',
-					value: function render() {
-						return _react2.default.createElement('div', { className: '404' }, _react2.default.createElement('h1', null, ' 404 get outta here... '));
-					}
-				}]);
-
-				return FourOhFour;
-			}(_react.Component);
-
-			exports.default = FourOhFour;
-
-			/* REACT HOT LOADER */
-		}).call(undefined);
-	} finally {
-		if (false) {
-			(function () {
-				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
-					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
-						foundReactClasses = true;
-					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
-						module.hot.accept(function (err) {
-							if (err) {
-								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
-							}
-						});
-					}
-				}module.hot.dispose(function (data) {
-					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
-				});
-			})();
-		}
-	}
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(266);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(258)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./style.scss", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./../node_modules/sass-loader/index.js!./style.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(257)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */\n/**\n * 1. Change the default font family in all browsers (opinionated).\n * 2. Prevent adjustments of font size after orientation changes in IE and iOS.\n */\nhtml {\n  font-family: sans-serif;\n  /* 1 */\n  -ms-text-size-adjust: 100%;\n  /* 2 */\n  -webkit-text-size-adjust: 100%;\n  /* 2 */ }\n\n/**\n * Remove the margin in all browsers (opinionated).\n */\nbody {\n  margin: 0; }\n\n/* HTML5 display definitions\n   ========================================================================== */\n/**\n * Add the correct display in IE 9-.\n * 1. Add the correct display in Edge, IE, and Firefox.\n * 2. Add the correct display in IE.\n */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  /* 1 */\n  display: block; }\n\n/**\n * Add the correct display in IE 9-.\n */\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block; }\n\n/**\n * Add the correct display in iOS 4-7.\n */\naudio:not([controls]) {\n  display: none;\n  height: 0; }\n\n/**\n * Add the correct vertical alignment in Chrome, Firefox, and Opera.\n */\nprogress {\n  vertical-align: baseline; }\n\n/**\n * Add the correct display in IE 10-.\n * 1. Add the correct display in IE.\n */\ntemplate,\n[hidden] {\n  display: none; }\n\n/* Links\n   ========================================================================== */\n/**\n * 1. Remove the gray background on active links in IE 10.\n * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.\n */\na {\n  background-color: transparent;\n  /* 1 */\n  -webkit-text-decoration-skip: objects;\n  /* 2 */ }\n\n/**\n * Remove the outline on focused links when they are also active or hovered\n * in all browsers (opinionated).\n */\na:active,\na:hover {\n  outline-width: 0; }\n\n/* Text-level semantics\n   ========================================================================== */\n/**\n * 1. Remove the bottom border in Firefox 39-.\n * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.\n */\nabbr[title] {\n  border-bottom: none;\n  /* 1 */\n  text-decoration: underline;\n  /* 2 */\n  text-decoration: underline dotted;\n  /* 2 */ }\n\n/**\n * Prevent the duplicate application of `bolder` by the next rule in Safari 6.\n */\nb,\nstrong {\n  font-weight: inherit; }\n\n/**\n * Add the correct font weight in Chrome, Edge, and Safari.\n */\nb,\nstrong {\n  font-weight: bolder; }\n\n/**\n * Add the correct font style in Android 4.3-.\n */\ndfn {\n  font-style: italic; }\n\n/**\n * Correct the font size and margin on `h1` elements within `section` and\n * `article` contexts in Chrome, Firefox, and Safari.\n */\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0; }\n\n/**\n * Add the correct background and color in IE 9-.\n */\nmark {\n  background-color: #ff0;\n  color: #000; }\n\n/**\n * Add the correct font size in all browsers.\n */\nsmall {\n  font-size: 80%; }\n\n/**\n * Prevent `sub` and `sup` elements from affecting the line height in\n * all browsers.\n */\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline; }\n\nsub {\n  bottom: -0.25em; }\n\nsup {\n  top: -0.5em; }\n\n/* Embedded content\n   ========================================================================== */\n/**\n * Remove the border on images inside links in IE 10-.\n */\nimg {\n  border-style: none; }\n\n/**\n * Hide the overflow in IE.\n */\nsvg:not(:root) {\n  overflow: hidden; }\n\n/* Grouping content\n   ========================================================================== */\n/**\n * 1. Correct the inheritance and scaling of font size in all browsers.\n * 2. Correct the odd `em` font sizing in all browsers.\n */\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  /* 1 */\n  font-size: 1em;\n  /* 2 */ }\n\n/**\n * Add the correct margin in IE 8.\n */\nfigure {\n  margin: 1em 40px; }\n\n/**\n * 1. Add the correct box sizing in Firefox.\n * 2. Show the overflow in Edge and IE.\n */\nhr {\n  box-sizing: content-box;\n  /* 1 */\n  height: 0;\n  /* 1 */\n  overflow: visible;\n  /* 2 */ }\n\n/* Forms\n   ========================================================================== */\n/**\n * 1. Change font properties to `inherit` in all browsers (opinionated).\n * 2. Remove the margin in Firefox and Safari.\n */\nbutton,\ninput,\nselect,\ntextarea {\n  font: inherit;\n  /* 1 */\n  margin: 0;\n  /* 2 */ }\n\n/**\n * Restore the font weight unset by the previous rule.\n */\noptgroup {\n  font-weight: bold; }\n\n/**\n * Show the overflow in IE.\n * 1. Show the overflow in Edge.\n */\nbutton,\ninput {\n  /* 1 */\n  overflow: visible; }\n\n/**\n * Remove the inheritance of text transform in Edge, Firefox, and IE.\n * 1. Remove the inheritance of text transform in Firefox.\n */\nbutton,\nselect {\n  /* 1 */\n  text-transform: none; }\n\n/**\n * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`\n *    controls in Android 4.\n * 2. Correct the inability to style clickable types in iOS and Safari.\n */\nbutton,\nhtml [type=\"button\"],\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button;\n  /* 2 */ }\n\n/**\n * Remove the inner border and padding in Firefox.\n */\nbutton::-moz-focus-inner,\n[type=\"button\"]::-moz-focus-inner,\n[type=\"reset\"]::-moz-focus-inner,\n[type=\"submit\"]::-moz-focus-inner {\n  border-style: none;\n  padding: 0; }\n\n/**\n * Restore the focus styles unset by the previous rule.\n */\nbutton:-moz-focusring,\n[type=\"button\"]:-moz-focusring,\n[type=\"reset\"]:-moz-focusring,\n[type=\"submit\"]:-moz-focusring {\n  outline: 1px dotted ButtonText; }\n\n/**\n * Change the border, margin, and padding in all browsers (opinionated).\n */\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em; }\n\n/**\n * 1. Correct the text wrapping in Edge and IE.\n * 2. Correct the color inheritance from `fieldset` elements in IE.\n * 3. Remove the padding so developers are not caught out when they zero out\n *    `fieldset` elements in all browsers.\n */\nlegend {\n  box-sizing: border-box;\n  /* 1 */\n  color: inherit;\n  /* 2 */\n  display: table;\n  /* 1 */\n  max-width: 100%;\n  /* 1 */\n  padding: 0;\n  /* 3 */\n  white-space: normal;\n  /* 1 */ }\n\n/**\n * Remove the default vertical scrollbar in IE.\n */\ntextarea {\n  overflow: auto; }\n\n/**\n * 1. Add the correct box sizing in IE 10-.\n * 2. Remove the padding in IE 10-.\n */\n[type=\"checkbox\"],\n[type=\"radio\"] {\n  box-sizing: border-box;\n  /* 1 */\n  padding: 0;\n  /* 2 */ }\n\n/**\n * Correct the cursor style of increment and decrement buttons in Chrome.\n */\n[type=\"number\"]::-webkit-inner-spin-button,\n[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto; }\n\n/**\n * 1. Correct the odd appearance in Chrome and Safari.\n * 2. Correct the outline style in Safari.\n */\n[type=\"search\"] {\n  -webkit-appearance: textfield;\n  /* 1 */\n  outline-offset: -2px;\n  /* 2 */ }\n\n/**\n * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.\n */\n[type=\"search\"]::-webkit-search-cancel-button,\n[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none; }\n\n/**\n * Correct the text style of placeholders in Chrome, Edge, and Safari.\n */\n::-webkit-input-placeholder {\n  color: inherit;\n  opacity: 0.54; }\n\n/**\n * 1. Correct the inability to style clickable types in iOS and Safari.\n * 2. Change font properties to `inherit` in Safari.\n */\n::-webkit-file-upload-button {\n  -webkit-appearance: button;\n  /* 1 */\n  font: inherit;\n  /* 2 */ }\n", ""]);
-
-	// exports
 
 
 /***/ }
