@@ -25,7 +25,6 @@ export default class FullscreenMap extends Component {
 			zoom: this.state.zoom,
 			center: this.mapCenter(),
 			disableDoubleClickZoom: true,
-			scrollwheel: false,
 			mapTypeControlOptions: {
 				mapTypeIds: ['styled_map']
 			}
@@ -39,7 +38,6 @@ export default class FullscreenMap extends Component {
 
 		tripCoords.forEach((coord) => {
 			let latLng = new google.maps.LatLng(coord[0], coord[1])
-			console.log(latLng)
 			let marker = new google.maps.Marker({ position: latLng })
 
 			marker.setMap(this.map)

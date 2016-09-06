@@ -1,5 +1,7 @@
+@import '../../../var.scss';
+
 .side-nav {
-	background: #333;
+	background: white;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -8,6 +10,7 @@
 	z-index: 200;
 	box-sizing: border-box;
 	padding-top: 200px;
+	border-left: 5px solid $brown;
 	transition: all 0.2s ease-out;
 
 	&.hidden {
@@ -18,12 +21,15 @@
 		display: block;
 		text-transform: uppercase;
 		color: white;
+		text-align: center;
+		color: $green;
+		font-size: 18px;
 		text-decoration: none;
-		padding: 25px 0px 25px 75px;
+		padding: 25px 0px;
 
 
 		&:hover, &:active, &:visited {
-			color: #eee;
+			color: $green;
 		}
 	}
 }
