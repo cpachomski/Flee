@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import MdMenu from 'react-icons/lib/md/menu'
 import { toggleMap } from '../../../../actions'
 
 
@@ -20,10 +21,11 @@ export default class Landing extends Component {
 
 		return (
 			<div>
-				<Logo />
+				<Logo data={ data } />
+				<MdMenu className='menu-button' onClick={() => {toggleMap()} } />
 				<FullscreenMap data={ data } initialCenter={ initialCenter }/>
-				<button className={ buttonClass } onClick={() => { toggleMap() }}>Expand Map</button>
-				<Nav data= { data } />
+				<button className={ buttonClass } onClick={() => { toggleMap() }}>Fullscreen Map</button>
+				<Nav data={ data }  />
 			</div>
 		)
 	}
