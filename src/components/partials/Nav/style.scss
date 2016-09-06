@@ -1,0 +1,22 @@
+.side-nav {
+	background: #333;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 300px;
+	height: 100%;
+	box-sizing: border-box;
+	padding-top: 200px;
+
+	> a {
+		display: block;
+		text-transform: uppercase;
+		color: white;
+		text-decoration: none;
+		padding: 25px;
+
+		&:hover, &:active, &:visited {
+			color: #eee;
+		}
+	}
+}

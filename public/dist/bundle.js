@@ -81,7 +81,7 @@
 
 			var _routes2 = _interopRequireDefault(_routes);
 
-			__webpack_require__(264);
+			__webpack_require__(265);
 
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
@@ -27175,15 +27175,15 @@
 
 			var _Landing2 = _interopRequireDefault(_Landing);
 
-			var _Trips = __webpack_require__(261);
+			var _Trips = __webpack_require__(262);
 
 			var _Trips2 = _interopRequireDefault(_Trips);
 
-			var _Articles = __webpack_require__(262);
+			var _Articles = __webpack_require__(263);
 
 			var _Articles2 = _interopRequireDefault(_Articles);
 
-			var _FourOhFour = __webpack_require__(263);
+			var _FourOhFour = __webpack_require__(264);
 
 			var _FourOhFour2 = _interopRequireDefault(_FourOhFour);
 
@@ -58731,11 +58731,13 @@
 
 			var _react2 = _interopRequireDefault(_react);
 
+			var _reactRouter = __webpack_require__(173);
+
 			var _FullscreenMap = __webpack_require__(253);
 
 			var _FullscreenMap2 = _interopRequireDefault(_FullscreenMap);
 
-			var _Logo = __webpack_require__(258);
+			var _Logo = __webpack_require__(259);
 
 			var _Logo2 = _interopRequireDefault(_Logo);
 
@@ -58852,7 +58854,11 @@
 
 			var _react2 = _interopRequireDefault(_react);
 
-			__webpack_require__(254);
+			var _mapStyles = __webpack_require__(254);
+
+			var _mapStyles2 = _interopRequireDefault(_mapStyles);
+
+			__webpack_require__(255);
 
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
@@ -58901,7 +58907,7 @@
 						var _this2 = this;
 
 						this.map = this.createMap();
-
+						this.setMapStyles();
 						google.maps.event.addListener(this.map, 'zoom_changed', function () {
 							_this2.handleZoomChange();
 						});
@@ -58916,10 +58922,22 @@
 					value: function createMap() {
 						var mapOptions = {
 							zoom: this.state.zoom,
-							center: this.mapCenter()
+							center: this.mapCenter(),
+							disableDoubleClickZoom: true,
+							scrollwheel: false,
+							mapTypeControlOptions: {
+								mapTypeIds: ['styled_map']
+							}
 						};
 
 						return new google.maps.Map(this.refs.fullscreenMap, mapOptions);
+					}
+				}, {
+					key: 'setMapStyles',
+					value: function setMapStyles() {
+						var mapStyle = new google.maps.StyledMapType(_mapStyles2.default);
+						this.map.mapTypes.set('styled_map', mapStyle);
+						this.map.setMapTypeId('styled_map');
 					}
 				}, {
 					key: 'mapCenter',
@@ -58975,13 +58993,160 @@
 /* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	/* REACT HOT LOADER */if (false) {
+	    (function () {
+	        var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
+	            RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
+	            ReactMount = require("react/lib/ReactMount"),
+	            React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
+	            return RootInstanceProvider.getRootInstances(ReactMount);
+	        }, React);
+	    })();
+	}try {
+	    (function () {
+
+	        "use strict";
+
+	        Object.defineProperty(exports, "__esModule", {
+	            value: true
+	        });
+	        exports.default = [{
+	            "featureType": "administrative",
+	            "elementType": "geometry.fill",
+	            "stylers": [{ "visibility": "off" }]
+	        }, {
+	            "featureType": "administrative",
+	            "elementType": "labels",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "administrative.country",
+	            "elementType": "geometry.stroke",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "administrative.province",
+	            "elementType": "geometry.stroke",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "landscape",
+	            "elementType": "geometry",
+	            "stylers": [{
+	                "visibility": "on"
+	            }, {
+	                "color": "#e3e3e3"
+	            }]
+	        }, {
+	            "featureType": "landscape.natural",
+	            "elementType": "labels",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "poi",
+	            "elementType": "all",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "road",
+	            "elementType": "all",
+	            "stylers": [{
+	                "color": "#cccccc"
+	            }]
+	        }, {
+	            "featureType": "road",
+	            "elementType": "labels",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "transit",
+	            "elementType": "labels.icon",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "transit.line",
+	            "elementType": "geometry",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "transit.line",
+	            "elementType": "labels.text",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "transit.station.airport",
+	            "elementType": "geometry",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "transit.station.airport",
+	            "elementType": "labels",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }, {
+	            "featureType": "water",
+	            "elementType": "geometry",
+	            "stylers": [{
+	                "color": "#FFFFFF"
+	            }]
+	        }, {
+	            "featureType": "water",
+	            "elementType": "labels",
+	            "stylers": [{
+	                "visibility": "off"
+	            }]
+	        }];
+
+	        /* REACT HOT LOADER */
+	    }).call(undefined);
+	} finally {
+	    if (false) {
+	        (function () {
+	            var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
+	                var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
+	                    foundReactClasses = true;
+	                }var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
+	                    module.hot.accept(function (err) {
+	                        if (err) {
+	                            console.error("Cannot not apply hot update to " + "mapStyles.js" + ": " + err.message);
+	                        }
+	                    });
+	                }
+	            }module.hot.dispose(function (data) {
+	                data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
+	            });
+	        })();
+	    }
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "mapStyles.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(255);
+	var content = __webpack_require__(256);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(257)(content, {});
+	var update = __webpack_require__(258)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -58998,21 +59163,21 @@
 	}
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(256)();
+	exports = module.exports = __webpack_require__(257)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".fullscreen-map-container {\n  position: fixed;\n  height: 100%;\n  width: 100%; }\n  .fullscreen-map-container > .map {\n    height: 100%; }\n\n.gm-style-cc,\n.gmnoprint {\n  display: none; }\n", ""]);
+	exports.push([module.id, ".fullscreen-map-container {\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  height: 100%;\n  width: 100%; }\n  .fullscreen-map-container > .map {\n    height: 100%; }\n\n.gm-style-cc,\n.gmnoprint {\n  display: none; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports) {
 
 	/*
@@ -59068,7 +59233,7 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -59320,7 +59485,7 @@
 
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -59361,7 +59526,7 @@
 
 			var _react2 = _interopRequireDefault(_react);
 
-			__webpack_require__(259);
+			__webpack_require__(260);
 
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
@@ -59431,16 +59596,16 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(260);
+	var content = __webpack_require__(261);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(257)(content, {});
+	var update = __webpack_require__(258)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -59457,21 +59622,21 @@
 	}
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(256)();
+	exports = module.exports = __webpack_require__(257)();
 	// imports
 
 
 	// module
-	exports.push([module.id, ".logo-container {\n  position: fixed;\n  top: 0px;\n  left: 50%;\n  transform: translateX(-50%); }\n  .logo-container > h1 {\n    display: inline;\n    background: white;\n    color: black;\n    font-family: \"Amatic SC\", cursive; }\n", ""]);
+	exports.push([module.id, ".logo-container {\n  position: absolute;\n  top: 0px;\n  padding-top: 50px;\n  left: 50%;\n  z-index: 100;\n  transform: translateX(-50%); }\n  .logo-container > h1 {\n    display: inline;\n    font-size: 90px;\n    text-transform: uppercase;\n    color: #333;\n    letter-spacing: 20px;\n    font-family: \"Bad Script\", cursive; }\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -59580,7 +59745,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -59689,7 +59854,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -59798,16 +59963,16 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(265);
+	var content = __webpack_require__(266);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(257)(content, {});
+	var update = __webpack_require__(258)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -59824,10 +59989,10 @@
 	}
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(256)();
+	exports = module.exports = __webpack_require__(257)();
 	// imports
 
 

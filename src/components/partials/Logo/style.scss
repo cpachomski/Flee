@@ -4,16 +4,23 @@
 	position: absolute;
 	top: 0px;
 	padding-top: 50px;
-	left: 50%;
 	z-index: 100;
-	transform: translateX(-50%);
+	right: 60px;
+	transition: all 0.3s ease-out;
+
+	&.centered {
+		right: 50%;
+		transform: translateX(50%);
+		> h1 {
+			color: #333;
+			font-size: 90px;
+		}
+	}
 
 	> h1 {
 		display: inline;
-		font-size: 90px;
 		text-transform: uppercase;
-		color: black;
+		color: white;
 		letter-spacing: 20px;
-		font-family: $bad-script;
 	}
 }
