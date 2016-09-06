@@ -11,6 +11,7 @@ export default function getInitialStore(cb) {
 		const trips = objects.type.trips
 		const sidebar = objects.type['sidebar-contents'][0]
 
+		AppStore.data.tripCoords = getTripCoords(trips);
 		AppStore.data.articles = articles
 		AppStore.data.trips = trips
 		AppStore.data.sidebar = sidebar
@@ -27,4 +28,19 @@ export default function getInitialStore(cb) {
 		}
 
 	})
+}
+
+function getTripCoords(trips) {
+	let tripCoords = []
+
+	trips.forEach( (trip) => {
+		let poiString = trip.metafield['points_of_interest'].value;
+		let pointsOfInterest = poiString.split(',')
+
+		pointsOfInterest.forEach( (poi) => {
+			tripCoords.push(poi.split(' '))
+		})
+	})
+
+	return tripCoords
 }
