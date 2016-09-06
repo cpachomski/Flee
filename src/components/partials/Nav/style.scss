@@ -8,7 +8,7 @@
 	z-index: 200;
 	box-sizing: border-box;
 	padding-top: 200px;
-	transition: all 0.3s ease-out;
+	transition: all 0.2s ease-out;
 
 	&.hidden {
 		transform: translateX(300px);
