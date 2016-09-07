@@ -1,4 +1,4 @@
-import AppStore from '../store/AppStore';
+import AppStore from '../store/AppStore'
 
 export default function toggleMap() {
 

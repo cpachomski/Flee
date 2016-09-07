@@ -8,9 +8,11 @@
 	width: 300px;
 	height: 100%;
 	z-index: 200;
+	-webkit-box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
 	box-sizing: border-box;
 	padding-top: 200px;
-	border-left: 5px solid $brown;
 	transition: all 0.2s ease-out;
 
 	&.hidden {
@@ -19,17 +21,26 @@
 
 	> a {
 		display: block;
+		position: relative;
 		text-transform: uppercase;
-		color: white;
-		text-align: center;
 		color: $green;
-		font-size: 18px;
+		text-align: center;
+		color: white;
+		font-size: 20px;
 		text-decoration: none;
 		padding: 25px 0px;
+		transition: all 0.2s ease-out;
 
+		&:before {
+			position: absolute;
+		}
 
-		&:hover, &:active, &:visited {
+		&:visited {
 			color: $green;
+		}
+
+		&:hover, &:active {
+			color: $blue;
 		}
 	}
 }
