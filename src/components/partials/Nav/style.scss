@@ -7,6 +7,7 @@
 	right: 0px;
 	width: 300px;
 	height: 100%;
+	min-height: 480px;
 	z-index: 200;
 	-webkit-box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
@@ -19,28 +20,35 @@
 		transform: translateX(300px);
 	}
 
-	> a {
-		display: block;
-		position: relative;
-		text-transform: uppercase;
-		color: $green;
-		text-align: center;
-		color: white;
-		font-size: 20px;
-		text-decoration: none;
-		padding: 25px 0px;
-		transition: all 0.2s ease-out;
+	.nav-links {
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		width: 100%;
 
-		&:before {
-			position: absolute;
-		}
+		> a {
+			display: block;
+			position: relative;
+			background: $green;
+			text-transform: uppercase;
+			color: white;
+			font-size: 20px;
+			text-decoration: none;
+			padding: 25px 0px;
+			margin-bottom: 10px;
+			padding-left: 50px;
+			border-top: 2px solid white;
+			border-bottom: 2px solid white;
+			transition: all 0.2s ease-out;
 
-		&:visited {
-			color: $green;
-		}
+			&:hover {
+				padding-left: 35px;
+			}
 
-		&:hover, &:active {
-			color: $blue;
+			&:before {
+				position: absolute;
+			}
+
 		}
 	}
 }

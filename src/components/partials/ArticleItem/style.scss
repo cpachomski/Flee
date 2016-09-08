@@ -1,0 +1,10 @@
+@import '../../../var.scss';
+
+.article-item {
+	> h3 {
+		> span {
+			font-size: 14px;
+			color: $blue;
+		}
+	}
+}

@@ -81,7 +81,7 @@
 
 			var _routes2 = _interopRequireDefault(_routes);
 
-			__webpack_require__(273);
+			__webpack_require__(276);
 
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
@@ -27183,7 +27183,7 @@
 
 			var _Articles2 = _interopRequireDefault(_Articles);
 
-			var _FourOhFour = __webpack_require__(272);
+			var _FourOhFour = __webpack_require__(275);
 
 			var _FourOhFour2 = _interopRequireDefault(_FourOhFour);
 
@@ -60117,6 +60117,10 @@
 
 			var _react2 = _interopRequireDefault(_react);
 
+			var _TopMap = __webpack_require__(272);
+
+			var _TopMap2 = _interopRequireDefault(_TopMap);
+
 			function _interopRequireDefault(obj) {
 				return obj && obj.__esModule ? obj : { default: obj };
 			}
@@ -60149,9 +60153,27 @@
 				}
 
 				_createClass(Articles, [{
+					key: 'componentWillMount',
+					value: function componentWillMount() {
+						//get the list of articles 
+						this.getArticles();
+					}
+				}, {
+					key: 'getArticles',
+					value: function getArticles() {
+						var data = this.props.data;
+
+						console.log(data);
+					}
+				}, {
 					key: 'render',
 					value: function render() {
-						return _react2.default.createElement('div', { className: 'Articles' }, _react2.default.createElement('h1', null, ' Articles '));
+						var currentCoords = {
+							lat: 45.918868,
+							lng: -123.975672
+						};
+
+						return _react2.default.createElement('div', { className: 'articles' }, _react2.default.createElement(_TopMap2.default, { currentCoords: currentCoords }), _react2.default.createElement('div', { className: 'article-list' }));
 					}
 				}]);
 
@@ -60186,6 +60208,230 @@
 
 /***/ },
 /* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/* REACT HOT LOADER */if (false) {
+		(function () {
+			var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"),
+			    RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"),
+			    ReactMount = require("react/lib/ReactMount"),
+			    React = require("react");module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () {
+				return RootInstanceProvider.getRootInstances(ReactMount);
+			}, React);
+		})();
+	}try {
+		(function () {
+
+			'use strict';
+
+			Object.defineProperty(exports, "__esModule", {
+				value: true
+			});
+
+			var _createClass = function () {
+				function defineProperties(target, props) {
+					for (var i = 0; i < props.length; i++) {
+						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+					}
+				}return function (Constructor, protoProps, staticProps) {
+					if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+				};
+			}();
+
+			var _react = __webpack_require__(2);
+
+			var _react2 = _interopRequireDefault(_react);
+
+			var _mapStyles = __webpack_require__(257);
+
+			var _mapStyles2 = _interopRequireDefault(_mapStyles);
+
+			__webpack_require__(273);
+
+			function _interopRequireDefault(obj) {
+				return obj && obj.__esModule ? obj : { default: obj };
+			}
+
+			function _classCallCheck(instance, Constructor) {
+				if (!(instance instanceof Constructor)) {
+					throw new TypeError("Cannot call a class as a function");
+				}
+			}
+
+			function _possibleConstructorReturn(self, call) {
+				if (!self) {
+					throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+				}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+			}
+
+			function _inherits(subClass, superClass) {
+				if (typeof superClass !== "function" && superClass !== null) {
+					throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+				}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+			}
+
+			var FullscreenMap = function (_Component) {
+				_inherits(FullscreenMap, _Component);
+
+				function FullscreenMap() {
+					var _ref;
+
+					var _temp, _this, _ret;
+
+					_classCallCheck(this, FullscreenMap);
+
+					for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+						args[_key] = arguments[_key];
+					}
+
+					return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FullscreenMap.__proto__ || Object.getPrototypeOf(FullscreenMap)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+						zoom: 7
+					}, _temp), _possibleConstructorReturn(_this, _ret);
+				}
+
+				_createClass(FullscreenMap, [{
+					key: 'componentDidMount',
+					value: function componentDidMount() {
+						var _this2 = this;
+
+						this.map = this.createMap();
+						this.setMapStyles();
+						this.setMarkers();
+						google.maps.event.addListener(this.map, 'zoom_changed', function () {
+							_this2.handleZoomChange();
+						});
+					}
+				}, {
+					key: 'componentDidUnMount',
+					value: function componentDidUnMount() {
+						google.maps.event.clearListener(this.map, 'zoom_changed');
+					}
+				}, {
+					key: 'createMap',
+					value: function createMap() {
+						var mapOptions = {
+							zoom: this.state.zoom,
+							center: this.mapCenter(),
+							disableDoubleClickZoom: true,
+							mapTypeControlOptions: {
+								mapTypeIds: ['styled_map']
+							}
+						};
+
+						return new google.maps.Map(this.refs.topMap, mapOptions);
+					}
+				}, {
+					key: 'setMarkers',
+					value: function setMarkers() {
+						console.log('set markers');
+					}
+				}, {
+					key: 'setMapStyles',
+					value: function setMapStyles() {
+						var mapStyle = new google.maps.StyledMapType(_mapStyles2.default);
+						this.map.mapTypes.set('styled_map', mapStyle);
+						this.map.setMapTypeId('styled_map');
+					}
+				}, {
+					key: 'mapCenter',
+					value: function mapCenter() {
+						var currentCoords = this.props.currentCoords;
+
+						return new google.maps.LatLng(currentCoords.lat, currentCoords.lng);
+					}
+				}, {
+					key: 'handleZoomChange',
+					value: function handleZoomChange() {
+						this.setState({
+							zoom: this.map.getZoom()
+						});
+					}
+				}, {
+					key: 'render',
+					value: function render() {
+						var data = this.props.data;
+
+						return _react2.default.createElement('div', { className: 'top-map' }, _react2.default.createElement('div', { className: 'map', ref: 'topMap' }));
+					}
+				}]);
+
+				return FullscreenMap;
+			}(_react.Component);
+
+			exports.default = FullscreenMap;
+
+			/* REACT HOT LOADER */
+		}).call(undefined);
+	} finally {
+		if (false) {
+			(function () {
+				var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false;if (module.exports && module.makeHot) {
+					var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js");if (makeExportsHot(module, require("react"))) {
+						foundReactClasses = true;
+					}var shouldAcceptModule = true && foundReactClasses;if (shouldAcceptModule) {
+						module.hot.accept(function (err) {
+							if (err) {
+								console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message);
+							}
+						});
+					}
+				}module.hot.dispose(function (data) {
+					data.makeHot = module.makeHot;data.foundReactClasses = foundReactClasses;
+				});
+			})();
+		}
+	}
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(274);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(261)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./style.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./style.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(260)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".top-map {\n  width: 100%;\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  height: 300px; }\n  .top-map > .map {\n    height: 100%;\n    width: 100%; }\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -60294,13 +60540,13 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/cpachomski/Documents/Node/Flee/node_modules/react-hot-loader/makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 273 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(274);
+	var content = __webpack_require__(277);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(261)(content, {});
@@ -60320,7 +60566,7 @@
 	}
 
 /***/ },
-/* 274 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(260)();

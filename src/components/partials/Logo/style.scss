@@ -10,6 +10,7 @@
 
 	&.centered {
 		right: 50%;
+		position: fixed;
 		transform: translateX(50%);
 		> h1 {
 			font-size: 50px;
@@ -21,6 +22,7 @@
 	> h1 {
 		display: inline;
 		text-transform: uppercase;
+		position: relative;
 		color: white;
 		background: $brown;
 		padding: 15px 50px 15px 55px;

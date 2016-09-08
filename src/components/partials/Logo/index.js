@@ -3,8 +3,8 @@ import './style.scss'
 
 export default class Logo extends Component {
 	render() {
-		const { data } = this.props
-		const logoClass = data.mapExpanded ? 'logo-container centered' : 'logo-container'
+		const { mapExpanded } = this.props
+		const logoClass = mapExpanded ? 'logo-container centered' : 'logo-container'
 
 		return (
 			<div className={ logoClass }>

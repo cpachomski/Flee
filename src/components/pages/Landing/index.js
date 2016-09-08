@@ -20,7 +20,7 @@ export default class Landing extends Component {
 
 		return (
 			<div>
-				<Logo data={ data } />
+				<Logo mapExpanded={ data.mapExpanded } />
 				<MdMenu className='menu-button' onClick={() => {toggleMap()} } />
 				<FullscreenMap data={ data } initialCenter={ initialCenter }/>
 				<button className={ buttonClass } onClick={() => { toggleMap() }}>Fullscreen Map</button>

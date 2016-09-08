@@ -10,10 +10,12 @@ export default class Nav extends Component {
 
 		return (
 			<nav className={ navClass }>
-				<Link to='/'>Home</Link>
-				<Link to='trips'>Trips</Link>
-				<Link to='articles'>Articles</Link>
-				<Link to='about'>About</Link>
+				<div className='nav-links'>
+					<Link to='/'>Home</Link>
+					<Link to='trips'>Trips</Link>
+					<Link to='articles'>Articles</Link>
+					<Link to='about'>About</Link>
+				</div>
 			</nav>
 		)
 	}

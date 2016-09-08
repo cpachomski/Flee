@@ -1,0 +1,37 @@
+@import '../../../var.scss';
+
+
+.article-list {
+	height: 3000px;
+	max-width: 960px;
+	margin: 350px auto 50px;
+	z-index: 1000;
+
+	> h1 {
+		text-align: center;
+		position: relative;
+		text-transform: uppercase;
+		color: $green;
+		letter-spacing: 2px;
+
+
+		&:before, &:after {
+			position: absolute;
+			width: 25%;
+			left: 50%;
+			transform: translateX(-50%);
+			content: '';
+			background-color: $green;
+		}
+
+		&:before {
+			top: -10px;
+			height: 1px;
+		}
+
+		&:after {
+			bottom: -10px;
+			height: 1px;
+		}
+	}
+}
